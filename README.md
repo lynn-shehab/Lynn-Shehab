@@ -1,4 +1,4 @@
-## Hi there, https://proud-candies-double.loca.lt/👋
+## Hi there, you can access my Streamlit app with this link (https://lynn-shehab-hymp7px9fanx7jbwgtm4gx.streamlit.app/)👋
 
 <!--
 **lynn-shehab/Lynn-Shehab** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
