@@ -66,7 +66,7 @@ filtered_towns = town_totals[town_totals['Total'] >= total_facility_threshold]['
 
 filtered_sunburst_data = melted_tourism_data[melted_tourism_data['Town'].isin(filtered_towns)]
 
-color_scheme = st.selectbox("Color Scheme for Sunburst Chart:", options=['Sunset Dark, Virdis, Rainbow, Plotly3'])
+color_scheme = st.selectbox("Color Scheme for Sunburst Chart:", options=['Rainbow'])
 
 aggregation_level = st.radio("Select Aggregation Level:", ('Town Level', 'Facility Level'))
 
@@ -89,48 +89,6 @@ else:
                                  title=f'Sunburst Chart of Facility Distribution by Town (Min {total_facility_threshold} Total Facilities)', 
                                  color='Facility', 
                                  color_continuous_scale=color_scheme)
-
-sunburst_chart = px.sunburst(filtered_sunburst_data, path=['Facility', 'Town'], values='Total')                  
-                             color='Facility',
-                             color_continuous_scale='sunsetdark')
-
-sunburst_chart.update_layout(
-    updatemenus=[
-        dict(
-            buttons=list([
-                dict(
-                    args=['colorscale', 'sunsetdark'],
-                    label='Sunset Dark',
-                    method='restyle'
-                ),
-                dict(
-                    args=['colorscale', 'Viridis'],
-                    label='Viridis',
-                    method='restyle'
-                ),
-                dict(
-                    args=['colorscale', 'Rainbow'],
-                    label='Rainbow',
-                    method='restyle'
-                ),
-                dict(
-                    args=['colorscale', 'Plotly3'],
-                    label='Plotly3',
-                    method='restyle'
-                ),
-            ]),
-            type="buttons",
-            direction="right",
-            pad={"r": 10, "t": 10},
-            showactive=True,
-            x=0.1,
-            xanchor="left",
-            y=1.1,
-            yanchor="top"
-        ),
-    ]
-)
-
 
 st.plotly_chart(sunburst_chart)
 
