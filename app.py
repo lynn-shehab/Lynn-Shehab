@@ -18,7 +18,7 @@ st.subheader("MSBA 325 - Building Interactive Visualizations with Streamlit Assi
 
 st.header("Comparison of Tourism Facilities Across Towns")
 st.write("This bar chart below visualizes the total counts of different types of tourism facilities (hotels, restaurants, cafes, and guest houses) for each Lebanese town.")
-st.write("The X-Axis represents different Lebanese towns, whereas the Y-Axis represents the total count of the type of facility)
+st.write("The X-Axis represents different Lebanese towns, whereas the Y-Axis represents the total count of the type of facility")
 st.write(f"- The interactivity of the bar chart allows you to compare the {facility_1} and the {facility_2} across all towns. You can filter towns based on a minimum threshold for more targeted analysis, and you can also isolate its legends.")
 
 facility_1 = st.selectbox("Select the First Facility Type:", options=tourism_facilities,
