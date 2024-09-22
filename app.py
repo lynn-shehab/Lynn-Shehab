@@ -52,7 +52,7 @@ st.plotly_chart(bar_chart)
 
 
 st.subheader("Hierarchical View of Tourism Facilities by Town")
-st.write("- The sunburst chart below gives a hierarchical view of tourism facilities by town. With the ability to choose aggregation levels and color schemes, you can gain different perspectives on the data due to its interactivity of toggling between facility types or town level.")
+st.write("- The sunburst chart below gives a hierarchical view of tourism facilities by town. With the ability to choose aggregation levels and to set a minimum threshold for the number of facilities among towns, you can gain different perspectives on the data due to its interactivity of toggling between facility types and town level.")
 
 
 total_facility_threshold = st.slider("Select Minimum Total Facilities to Include in the Sunburst Chart:", 0, int(melted_tourism_data['Total'].max()), 0)
@@ -66,9 +66,6 @@ filtered_towns = town_totals[town_totals['Total'] >= total_facility_threshold]['
 
 filtered_sunburst_data = melted_tourism_data[melted_tourism_data['Town'].isin(filtered_towns)]
 
-
-# Interactivity 2: Select color scheme for the Sunburst chart 
-color_scheme = st.selectbox("Select a Color Scheme for Sunburst Chart:", options=['Rainbow', 'Viridis', 'Cividis', 'Plotly'])
 
 
 aggregation_level = st.radio("Select Aggregation Level:", ('Town Level', 'Facility Level'))
