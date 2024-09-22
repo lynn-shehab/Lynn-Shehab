@@ -7,7 +7,7 @@ import plotly.express as px
 
 data_url = 'https://linked.aub.edu.lb/pkgcube/data/c87c6b00fb7268d151508e7ec14e0f98_20240908_173516.csv'
 data = pd.read_csv(data_url)
-df = pd.read_csv(data_url)
+
 
 tourism_facilities = ['Total number of hotels', 'Total number of restaurants', 'Total number of cafes', 'Total number of guest houses']
 
