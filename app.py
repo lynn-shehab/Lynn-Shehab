@@ -73,7 +73,7 @@ aggregation_level = st.radio("Select Aggregation Level:", ('Town Level', 'Facili
 
 
 if aggregation_level == 'Town Level':
-  sunburst_chart = px.sunburst(filtered_sunburst_data,
+    sunburst_chart = px.sunburst(filtered_sunburst_data,
                                path=['Town', 'Facility'],
                                values='Total',
                                title=f'Sunburst Chart of Tourism Facilities by Town (Min {total_facility_threshold} Total Facilities)',
@@ -89,6 +89,7 @@ else:
                                 title=f'Sunburst Chart of Facility Distribution by Town (Min {total_facility_threshold} Total Facilities)', 
                                 color='Facility', 
                                 color_continuous_scale=color_scheme)
+
 
     st.plotly_chart(sunburst_chart)
 st.write("### Insights:")
