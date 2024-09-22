@@ -90,9 +90,9 @@ else:
                                  color='Facility', 
                                  color_continuous_scale=color_scheme)
 
-sunburst_chart  = px.sunburst(filtered_sunburst_data=['Facility', 'Town'], values='Total',
-                  color='Facility',
-                  color_continuous_scale='sunsetdark')
+sunburst_chart = px.sunburst(filtered_sunburst_data, path=['Facility', 'Town'], values='Total')                  
+                color='Facility',
+                color_continuous_scale='sunsetdark')
 
 sunburst_chart.update_layout(
     updatemenus=[
