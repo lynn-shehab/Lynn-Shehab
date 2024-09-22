@@ -21,11 +21,12 @@ st.write("This bar chart below visualizes the total counts of different types of
 st.write("The X-Axis represents different Lebanese towns, whereas the Y-Axis represents the total count of the type of facility")
 st.write(f"- The interactivity of the bar chart allows you to compare the {facility_1} and the {facility_2} across all towns. You can filter towns based on a minimum threshold for more targeted analysis, and you can also isolate its legends.")
 
-facility_1 = st.selectbox("Select the First Facility Type:", options=tourism_facilities,
-index=0)
+facility_1 = st.selectbox("Select the First Facility Type:", options=tourism_facilities, index=0)
 
-facility_2 = st.selectbox("Select the Second Facility Type:", options=[f for f in
-tourism_facilities if f != facility_1], index=0)
+facility_2 = st.selectbox("Select the Second Facility Type:", options=[f for f in tourism_facilities if f != facility_1], index=0)
+
+if facility_1 and facility_2:
+    st.write(f"- The interactivity of the bar chart allows you to compare the {facility_1} and the {facility_2} across all towns. You can filter towns based on a minimum threshold for more targeted analysis, and you can also isolate its legends.")
 
 facility_data_1 = melted_tourism_data[melted_tourism_data['Facility'] == facility_1]
 facility_data_2 = melted_tourism_data[melted_tourism_data['Facility'] == facility_2]
