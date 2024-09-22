@@ -84,11 +84,11 @@ if aggregation_level == 'Town Level':
 
 else:
     sunburst_chart = px.sunburst(filtered_sunburst_data,
-                                 path=['Facility', 'Town'], 
-                                 values='Total', 
-                                 title=f'Sunburst Chart of Facility Distribution by Town (Min {total_facility_threshold} Total Facilities)', 
-                                 color='Facility', 
-                                 color_continuous_scale=color_scheme)
+                            path=['Facility', 'Town'], 
+                            values='Total', 
+                            title=f'Sunburst Chart of Facility Distribution by Town (Min {total_facility_threshold} Total Facilities)', 
+                            color='Facility', 
+                            color_continuous_scale=color_scheme)
 
 st.plotly_chart(sunburst_chart)
 
