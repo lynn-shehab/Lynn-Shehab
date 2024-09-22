@@ -17,8 +17,8 @@ var_name='Facility', value_name='Total')
 st.subheader("MSBA 325 - Building Interactive Visualizations with Streamlit Assignment")
 
 st.header("Comparison of Tourism Facilities Across Towns")
-st.write("This bar chart below visualizes the total counts of different types of tourism facilities (hotels, restaurants, cafes, and guest houses) for each Lebanese town.")
-st.write("The X-Axis represents different Lebanese towns, whereas the Y-Axis represents the total count of the type of facility")
+st.write("- This bar chart below visualizes the total counts of different types of tourism facilities (hotels, restaurants, cafes, and guest houses) for each Lebanese town.")
+st.write("- The X-Axis represents different Lebanese towns, whereas the Y-Axis represents the total count of the type of facility")
 
 facility_1 = st.selectbox("Select the First Facility Type:", options=tourism_facilities, index=0)
 
