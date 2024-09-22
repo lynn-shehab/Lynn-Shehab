@@ -7,6 +7,7 @@ import plotly.express as px
 
 data_url = 'https://linked.aub.edu.lb/pkgcube/data/c87c6b00fb7268d151508e7ec14e0f98_20240908_173516.csv'
 data = pd.read_csv(data_url)
+df = pd.read_csv(data_url)
 
 tourism_facilities = ['Total number of hotels', 'Total number of restaurants', 'Total number of cafes', 'Total number of guest houses']
 
@@ -66,7 +67,7 @@ filtered_towns = town_totals[town_totals['Total'] >= total_facility_threshold]['
 filtered_sunburst_data = melted_tourism_data[melted_tourism_data['Town'].isin(filtered_towns)]
 
 
-fig = px.sunburst(data, path=['category', 'subcategory'], values='values',
+fig = px.sunburst(df, path=['category', 'subcategory'], values='values',
                   color='values',
                   color_continuous_scale='sunsetdark')
 
