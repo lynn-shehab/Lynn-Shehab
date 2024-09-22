@@ -8,7 +8,6 @@ import plotly.express as px
 data_url = 'https://linked.aub.edu.lb/pkgcube/data/c87c6b00fb7268d151508e7ec14e0f98_20240908_173516.csv'
 data = pd.read_csv(data_url)
 
-
 tourism_facilities = ['Total number of hotels', 'Total number of restaurants', 'Total number of cafes', 'Total number of guest houses']
 
 melted_tourism_data = data.melt(id_vars=['Town'], value_vars=tourism_facilities,
@@ -52,7 +51,7 @@ st.plotly_chart(bar_chart)
 
 
 st.subheader("Hierarchical View of Tourism Facilities by Town")
-st.write("- The sunburst chart below gives a hierarchical view of tourism facilities by town. With the ability to choose aggregation levels and to set a minimum threshold for the number of facilities among towns, you can gain different perspectives on the data due to its interactivity of toggling between facility types and town level.")
+st.write("- The sunburst chart below gives a hierarchical view of tourism facilities by town. With the ability to choose aggregation levels, you can gain different perspectives on the data due to its interactivity of toggling between facility types or town level.")
 
 
 total_facility_threshold = st.slider("Select Minimum Total Facilities to Include in the Sunburst Chart:", 0, int(melted_tourism_data['Total'].max()), 0)
@@ -66,30 +65,35 @@ filtered_towns = town_totals[town_totals['Total'] >= total_facility_threshold]['
 
 filtered_sunburst_data = melted_tourism_data[melted_tourism_data['Town'].isin(filtered_towns)]
 
+
 color_scheme = st.selectbox("Color Scheme for Sunburst Chart:", options=['Rainbow'])
+
 
 aggregation_level = st.radio("Select Aggregation Level:", ('Town Level', 'Facility Level'))
 
 
 
 if aggregation_level == 'Town Level':
-    sunburst_chart = px.sunburst(filtered_sunburst_data,
-                               path=['Town', 'Facility'],
-                               values='Total',
-                               title=f'Sunburst Chart of Tourism Facilities by Town (Min {total_facility_threshold} Total Facilities)',
-                               color='Facility',
-                               color_continuous_scale=color_scheme) 
+  sunburst_chart = px.sunburst(filtered_sunburst_data,
+                              path=['Town', 'Facility'],
+                              values='Total',
+                              title=f'Sunburst Chart of Tourism Facilities by Town (Min {total_facility_threshold} Total Facilities)',
+                              color='Facility',
+                              color_continuous_scale=color_scheme)
+
+
 
 else:
     sunburst_chart = px.sunburst(filtered_sunburst_data,
-                                path=['Facility', 'Town'], 
-                                values='Total', 
-                                title=f'Sunburst Chart of Facility Distribution by Town (Min {total_facility_threshold} Total Facilities)', 
-                                color='Facility',
-                                color_continuous_scale=color_scheme)
+                                 path=['Facility', 'Town'], 
+                                 values='Total', 
+                                 title=f'Sunburst Chart of Facility Distribution by Town (Min {total_facility_threshold} Total Facilities)', 
+                                 color='Facility', 
+                                 color_continuous_scale=color_scheme)
 
 
-    st.plotly_chart(sunburst_chart)
+st.plotly_chart(sunburst_chart)
+
 st.write("### Insights:")
 st.write("- By using the interactivity of the visualizations of the dataset, we can understand that retaurants are the most prevalent facility type among guest houses, cafes, and hotels.")
 st.write("- Additionally, the town Mina has the highest number of cafes compared to other Lebanese towns.")
