@@ -78,16 +78,14 @@ if aggregation_level == 'Town Level':
                                values='Total',
                                title=f'Sunburst Chart of Tourism Facilities by Town (Min {total_facility_threshold} Total Facilities)',
                                color='Facility',
-                               color_continuous_scale=color_scheme)
-
-
+                               color_continuous_scale=color_scheme) 
 
 else:
     sunburst_chart = px.sunburst(filtered_sunburst_data,
                                 path=['Facility', 'Town'], 
                                 values='Total', 
                                 title=f'Sunburst Chart of Facility Distribution by Town (Min {total_facility_threshold} Total Facilities)', 
-                                color='Facility', 
+                                color='Facility',
                                 color_continuous_scale=color_scheme)
 
 
