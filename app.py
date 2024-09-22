@@ -84,15 +84,13 @@ if aggregation_level == 'Town Level':
 
 else:
     sunburst_chart = px.sunburst(filtered_sunburst_data,
-                            path=['Facility', 'Town'], 
-                            values='Total', 
-                            title=f'Sunburst Chart of Facility Distribution by Town (Min {total_facility_threshold} Total Facilities)', 
-                            color='Facility', 
-                            color_continuous_scale=color_scheme)
+                                path=['Facility', 'Town'], 
+                                values='Total', 
+                                title=f'Sunburst Chart of Facility Distribution by Town (Min {total_facility_threshold} Total Facilities)', 
+                                color='Facility', 
+                                color_continuous_scale=color_scheme)
 
-st.plotly_chart(sunburst_chart)
-
-
+    st.plotly_chart(sunburst_chart)
 st.write("### Insights:")
 st.write("- By using the interactivity of the visualizations of the dataset, we can understand that retaurants are the most prevalent facility type among guest houses, cafes, and hotels.")
 st.write("- Additionally, the town Mina has the highest number of cafes compared to other Lebanese towns.")
