@@ -66,7 +66,46 @@ filtered_towns = town_totals[town_totals['Total'] >= total_facility_threshold]['
 filtered_sunburst_data = melted_tourism_data[melted_tourism_data['Town'].isin(filtered_towns)]
 
 
-color_scheme = st.selectbox("Select a Color Scheme for Sunburst Chart:", options=['Rainbow', 'Viridis', 'Cividis', 'Plotly'])
+fig = px.sunburst(data, path=['category', 'subcategory'], values='values',
+                  color='values',
+                  color_continuous_scale='sunsetdark')
+
+fig.update_layout(
+    updatemenus=[
+        dict(
+            buttons=list([
+                dict(
+                    args=['colorscale', 'sunsetdark'],
+                    label='Sunset Dark',
+                    method='restyle'
+                ),
+                dict(
+                    args=['colorscale', 'Viridis'],
+                    label='Viridis',
+                    method='restyle'
+                ),
+                dict(
+                    args=['colorscale', 'Rainbow'],
+                    label='Rainbow',
+                    method='restyle'
+                ),
+                dict(
+                    args=['colorscale', 'Plotly3'],
+                    label='Plotly3',
+                    method='restyle'
+                ),
+            ]),
+            type="buttons",
+            direction="right",
+            pad={"r": 10, "t": 10},
+            showactive=True,
+            x=0.1,
+            xanchor="left",
+            y=1.1,
+            yanchor="top"
+        ),
+    ]
+)
 
 
 aggregation_level = st.radio("Select Aggregation Level:", ('Town Level', 'Facility Level'))
